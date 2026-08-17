@@ -5,9 +5,7 @@
 }
 
 html,
-body {
-	scrollbar-gutter: stable;
-}
+
 
 html {
 	box-sizing: border-box;
@@ -17,6 +15,7 @@ html {
 body {
 	height: 100%;
 	font-family: 'Nunito', 'Arial', 'Helvetica', sans-serif;
+	overflow: hidden;
 }
 
 .main {
@@ -35,6 +34,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	overflow: auto;
 }
 
 img {
@@ -87,3 +87,4 @@ img {
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
 }
+
