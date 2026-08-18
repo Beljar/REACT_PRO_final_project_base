@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import s from '../../CartPage.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { cartActions } from '../../../../../shared/store/slices/cart';
-import { CartCounter } from '../../../../../shared/ui/CartCounter';
 import { Button } from '../../../../../shared/ui';
+import { AddToCart } from 'features/add-to-cart';
+import { cartActions } from 'entities/cart';
 
 type CartItemProps = {
 	product: CartProduct;
@@ -35,7 +35,7 @@ export const CartItem = ({ product }: CartItemProps) => {
 						</Link>
 
 						<div style={{ display: 'flex', flexDirection: 'column' }}>
-							<CartCounter productId={id} />
+							<AddToCart product={product} />
 
 							<div className={classNames(s['cart-item__price'])}>
 								<div className={classNames(s['price-big'], s['price-wrap'])}>

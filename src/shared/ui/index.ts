@@ -10,11 +10,6 @@ export type { LoaderSize, LoaderVariant } from './Loader';
 
 // Additional UI Components
 export { ButtonBack } from './ButtonBack';
-export { Card } from './Card';
-export { CartCounter } from './CartCounter';
-export { LikeButton } from './LikeButton';
-export { LoadMore } from './LoadMore';
 export { Logo } from './Logo';
 export { Rating } from './Rating';
-export { Sort } from './Sort';
 export { Spinner } from './Spinner';

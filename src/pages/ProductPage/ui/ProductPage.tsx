@@ -5,14 +5,13 @@ import truckSVG from '../../../shared/assets/icons/truck.svg';
 import qualitySVG from '../../../shared/assets/icons/quality.svg';
 import { Rating } from '../../../shared/ui/Rating';
 import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { LikeButton } from '../../../shared/ui/LikeButton';
 import { ReviewList } from '../../../widgets/ReviewList/ui/ReviewList';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { useGetProductQuery } from '../../../shared/store/api/productsApi';
-import { ProductCartCounter } from '../../../shared/ui/ProductCartCounter/ui/ProductCartCounter';
+import { useGetProductQuery } from '../../../entities/product/api';
 import { useAppSelector } from '../../../shared/store/utils';
-import { cartSelectors } from '../../../shared/store/slices/cart';
-import { CartCounter } from '../../../shared/ui/CartCounter';
+import { LikeButton } from 'features/like-product';
+import { AddToCart } from 'features/add-to-cart';
+import { cartSelectors } from 'entities/cart';
 
 export const ProductPage = WithProtection(() => {
 	const location = useLocation();
@@ -53,11 +52,7 @@ export const ProductPage = WithProtection(() => {
 						</span>
 					</div>
 
-					{isProductInCart ? (
-						<CartCounter productId={id} />
-					) : (
-						<ProductCartCounter product={product} />
-					)}
+					<AddToCart product={product} />
 
 					<LikeButton product={product} />
 					<div className={classNames(s['product__delivery'])}>

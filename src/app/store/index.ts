@@ -1,0 +1,16 @@
+import { configureStore } from '@reduxjs/toolkit';
+import AppApi from 'shared/api/ApiServise';
+import { rootReducer } from './reducers/rootReducer';
+import { productsApi } from 'entities/product/api';
+import { authApi } from 'entities/auth';
+
+export const store = configureStore({
+	reducer: rootReducer,
+	devTools: process.env.NODE_ENV !== 'production',
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			thunk: {
+				extraArgument: AppApi,
+			},
+		}).concat([authApi.middleware, productsApi.middleware]),
+});

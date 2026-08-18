@@ -1,3 +1,5 @@
+import importPlugin from 'eslint-plugin-import';
+
 module.exports = {
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
@@ -9,6 +11,9 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
+	},
+	plugins: {
+		import: importPlugin,
 	},
 	extends: [
 		'plugin:@typescript-eslint/recommended',
