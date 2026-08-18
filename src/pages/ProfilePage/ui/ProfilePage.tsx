@@ -1,6 +1,6 @@
 import s from './ProfilePage.module.css';
 import classNames from 'classnames';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
+import { ButtonBack, Button, Input } from '../../../shared/ui';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
 
 export const ProfilePage = WithProtection(() => {
@@ -10,83 +10,56 @@ export const ProfilePage = WithProtection(() => {
 			<h1 className={s['form__title']}>Мои данные</h1>
 			<form className={classNames(s['form'], s['form'])}>
 				<div className={s['form__row']}>
-					<label className={s['form__label']} htmlFor='name'>
-						{''}
-						<input
-							className={s['input']}
-							name='name'
-							id='name'
-							type='text'
-							placeholder='Введите ваше имя'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='about'
-							id='about'
-							type='text'
-							placeholder='Описание профессии'
-						/>
-					</label>
+					<Input
+						id='name'
+						name='name'
+						type='text'
+						placeholder='Введите ваше имя'
+						className={s['input']}
+					/>
+					<Input
+						id='about'
+						name='about'
+						type='text'
+						placeholder='Описание профессии'
+						className={s['input']}
+					/>
 				</div>
 				<div className={s['form__row']}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='avatar'
-							id='avatar'
-							type='url'
-							placeholder='Введите ссылку на аватарку'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='email'
-							id='email'
-							type='text'
-							placeholder='email'
-						/>
-					</label>
+					<Input
+						id='avatar'
+						name='avatar'
+						type='url'
+						placeholder='Введите ссылку на аватарку'
+						className={s['input']}
+					/>
+					<Input
+						id='email'
+						name='email'
+						type='email'
+						placeholder='email'
+						className={s['input']}
+					/>
 				</div>
 
-				<button
-					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
+				<Button type='submit' variant='secondary' className={s['maxContent']}>
 					Сохранить
-				</button>
+				</Button>
 			</form>
 			<h2 className={s['form__title']}>Изменить пароль</h2>
 			<form className={classNames(s['form'], s['form'])}>
 				<div className={classNames(s['form__row'], s['form__row_min'])}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='password'
-							id='password'
-							type='password'
-							placeholder='Пароль'
-						/>
-					</label>
+					<Input
+						id='password'
+						name='password'
+						type='password'
+						placeholder='Пароль'
+						className={s['input']}
+					/>
 				</div>
-				<button
-					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
+				<Button type='submit' variant='secondary' className={s['maxContent']}>
 					Сохранить
-				</button>
+				</Button>
 			</form>
 		</>
 	);

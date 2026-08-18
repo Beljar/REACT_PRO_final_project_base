@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom';
 import styles from './styles.module.css';
 import { useRef } from 'react';
 import { useHandlers } from './useHandlers';
+import { Button } from '../Button';
 
 interface ModalProps {
 	isOpen: boolean;
@@ -42,13 +43,14 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
 				role='dialog'
 				aria-modal='true'>
 				<div className={styles.modalBody}>
-					<button
+					<Button
+						variant='ghost'
 						className={styles.closeButton}
 						ref={closeBtnRef}
 						onClick={onClose}
 						aria-label='Close modal'>
 						×
-					</button>
+					</Button>
 					<div className={styles.modalHeader}>{title && <h2>{title}</h2>}</div>
 
 					<div className={styles.modalContent}>{children}</div>

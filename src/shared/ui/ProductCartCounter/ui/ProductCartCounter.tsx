@@ -2,6 +2,8 @@ import s from './ProductCartCounter.module.css';
 import classNames from 'classnames';
 import { useCount } from '../hooks/useCount';
 import { useAddToCart } from '../../../hooks/useAddToCart';
+import { Button } from '../../Button';
+import { Input } from '../../Input';
 
 type ProductCartCounterProps = {
 	product: Product;
@@ -13,24 +15,32 @@ export const ProductCartCounter = ({ product }: ProductCartCounterProps) => {
 	return (
 		<div className={classNames('product__btn-wrap')}>
 			<div className={s['button-count']}>
-				<button className={s['button-count__minus']} onClick={handleCountMinus}>
+				<Button
+					variant='ghost'
+					size='small'
+					className={s['button-count__minus']}
+					onClick={handleCountMinus}>
 					-
-				</button>
-				<input
+				</Button>
+				<Input
 					type='number'
 					className={s['button-count__num']}
 					value={count}
 					onChange={handleCount}
 				/>
-				<button className={s['button-count__plus']} onClick={handleCountPlus}>
+				<Button
+					variant='ghost'
+					size='small'
+					className={s['button-count__plus']}
+					onClick={handleCountPlus}>
 					+
-				</button>
+				</Button>
 			</div>
-			<button
+			<Button
 				onClick={() => addProductToCart({ ...product, count })}
 				className={classNames(s['button'], s['button_type_primary'])}>
 				В корзину
-			</button>
+			</Button>
 		</div>
 	);
 };

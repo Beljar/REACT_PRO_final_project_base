@@ -2,14 +2,14 @@ import {
 	Alert,
 	AlertTitle,
 	Box,
-	Button,
-	CircularProgress,
+	Button as MUIButton,
 	Container,
 } from '@mui/material';
 import { FC, ComponentType } from 'react';
 import { getMessageFromError } from '../../utils';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { Button, Loader, Spinner } from '../../ui';
 
 interface WithQueryProps {
 	isLoading: boolean;
@@ -45,7 +45,7 @@ export const WithQuery = <T extends object>(
 		if (isLoading) {
 			return (
 				<Box sx={{ display: 'flex', justifyContent: 'center' }}>
-					<CircularProgress />
+					<Spinner />
 				</Box>
 			);
 		}
