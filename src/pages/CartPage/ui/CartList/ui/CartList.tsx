@@ -9,7 +9,7 @@ export const CartList = ({ products }: CartListProps) => {
 	return (
 		<div className={classNames(s['cart-list'])}>
 			{products.map((p) => (
-				<CartItem product={p} key={p.id} />
+				<CartItem key={p.id} {...p} />
 			))}
 		</div>
 	);

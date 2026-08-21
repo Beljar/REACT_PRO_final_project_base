@@ -11,11 +11,12 @@ import { userSelectors } from 'entities/user';
 import { useAppSelector } from 'shared/store/utils';
 import { IErrorResponse } from 'entities/product/api';
 import { Button } from 'shared/ui';
+import { memo } from 'react';
 
 type TLikeButtonProps = {
 	product: Product;
 };
-export const LikeButton = ({ product }: TLikeButtonProps) => {
+export const LikeButton = memo(({ product }: TLikeButtonProps) => {
 	const accessToken = useAppSelector(userSelectors.getAccessToken);
 	const user = useAppSelector(userSelectors.getUser);
 
@@ -52,4 +53,4 @@ export const LikeButton = ({ product }: TLikeButtonProps) => {
 			<LikeSvg />
 		</Button>
 	);
-};
+});

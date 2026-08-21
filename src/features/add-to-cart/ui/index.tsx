@@ -1,9 +1,9 @@
-import { cartSelectors } from "entities/cart";
-import { useAppSelector } from "shared/store/utils";
-import { CartCounter } from "./CartCounter";
-import { Button } from "shared/ui";
-import { useAddToCart } from "../hooks/useAddToCart";
-import classNames from "classnames";
+import { cartSelectors } from 'entities/cart';
+import { useAppSelector } from 'shared/store/utils';
+import { CartCounter } from './CartCounter';
+import { Button } from 'shared/ui';
+import { useAddToCart } from '../hooks/useAddToCart';
+import classNames from 'classnames';
 import s from './AddToCart.module.css';
 
 type TAddToCart = {
@@ -11,10 +11,12 @@ type TAddToCart = {
 };
 
 export const AddToCart: React.FC<TAddToCart> = ({ product }) => {
-        const cartProducts = useAppSelector(cartSelectors.getCartProducts);
-        const isProductInCart = cartProducts.some((p) => p.id === product.id);
-            const { addProductToCart } = useAddToCart();
-    return 			<>{isProductInCart ? (
+	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
+	const isProductInCart = cartProducts.some((p) => p.id === product.id);
+	const { addProductToCart } = useAddToCart();
+	return (
+		<>
+			{isProductInCart ? (
 				<CartCounter product={product} />
 			) : (
 				<Button
@@ -27,5 +29,7 @@ export const AddToCart: React.FC<TAddToCart> = ({ product }) => {
 					)}>
 					В корзину
 				</Button>
-			)}</>
-}
+			)}
+		</>
+	);
+};

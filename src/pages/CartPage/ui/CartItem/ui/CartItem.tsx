@@ -6,13 +6,11 @@ import { useDispatch } from 'react-redux';
 import { Button } from '../../../../../shared/ui';
 import { AddToCart } from 'features/add-to-cart';
 import { cartActions } from 'entities/cart';
+import { memo } from 'react';
 
-type CartItemProps = {
-	product: CartProduct;
-};
-export const CartItem = ({ product }: CartItemProps) => {
+export const CartItem = memo((props: Product) => {
 	const dispatch = useDispatch();
-	const { id, name, images, price, discount } = product;
+	const { id, name, images, price, discount } = props;
 
 	const handleDelete = () => {
 		dispatch(cartActions.deleteCartProduct(id));
@@ -35,7 +33,7 @@ export const CartItem = ({ product }: CartItemProps) => {
 						</Link>
 
 						<div style={{ display: 'flex', flexDirection: 'column' }}>
-							<AddToCart product={product} />
+							<AddToCart product={props} />
 
 							<div className={classNames(s['cart-item__price'])}>
 								<div className={classNames(s['price-big'], s['price-wrap'])}>
@@ -60,4 +58,4 @@ export const CartItem = ({ product }: CartItemProps) => {
 			</div>
 		</div>
 	);
-};
+});

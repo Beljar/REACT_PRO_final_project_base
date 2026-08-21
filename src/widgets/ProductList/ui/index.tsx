@@ -2,16 +2,17 @@ import { useProducts } from 'entities/product';
 import { WithQuery } from '../../../shared/store/HOCs/WithQuery';
 import { CardList } from './card-list/CardList';
 
-interface IViewProductListProps {
+interface IProductListProps {
 	title: string;
 	isFavorite?: boolean;
-	Extras?: React.FC<{product: Product}>;
-	CartActions?: React.FC<{product: Product}>;
 }
 
 const CardListWithQuery = WithQuery(CardList);
 
-export const ViewProductList: React.FC<IViewProductListProps> = ({title, isFavorite, Extras, CartActions}) => {
+export const ProductList: React.FC<IProductListProps> = ({
+	title,
+	isFavorite,
+}) => {
 	const { products, isLoading, isError, error } = useProducts(isFavorite);
 
 	return (
@@ -22,8 +23,6 @@ export const ViewProductList: React.FC<IViewProductListProps> = ({title, isFavor
 				isError={isError}
 				products={products}
 				error={error}
-				Extras={Extras}
-				CartActions={CartActions}
 			/>
 		</>
 	);

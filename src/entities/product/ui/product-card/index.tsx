@@ -2,14 +2,14 @@ import classNames from 'classnames';
 import s from './Card.module.css';
 import { Price } from './Price/ui/Price';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { memo } from 'react';
 
 type CardProps = {
 	product: Product;
-	Extras?: React.FC<{product: Product}>;
-	CartActions?: React.FC<{product: Product}>;
+	Extras?: React.FC<{ product: Product }>;
+	CartActions?: React.FC<{ product: Product }>;
 };
-export const Card = ({ product, Extras, CartActions }: CardProps) => {
+export const Card = memo(({ product, Extras, CartActions }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 
 	return (
@@ -33,8 +33,8 @@ export const Card = ({ product, Extras, CartActions }: CardProps) => {
 						s['card__sticky'],
 						s['card__sticky_type_top-right']
 					)}>
-						<Extras product={product}/>
-					</div>
+					<Extras product={product} />
+				</div>
 			) : null}
 			<Link className={s['card__link']} to={`/products/${id}`}>
 				<img
@@ -48,7 +48,7 @@ export const Card = ({ product, Extras, CartActions }: CardProps) => {
 					<h3 className={s['card__name']}>{name}</h3>
 				</div>
 			</Link>
-			{CartActions ? <CartActions product={product}/> : null}
+			{CartActions ? <CartActions product={product} /> : null}
 		</article>
 	);
-};
+});

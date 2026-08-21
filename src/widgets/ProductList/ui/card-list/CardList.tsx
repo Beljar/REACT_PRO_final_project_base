@@ -1,13 +1,13 @@
 import { Card } from 'entities/product';
 import s from './CardList.module.css';
+import { LikeButton } from 'features/like-product';
+import { AddToCart } from 'features/add-to-cart';
 
 type CardListProps = {
 	title: string;
 	products: Product[];
-	Extras?: React.FC<{product: Product}>;
-	CartActions?: React.FC<{product: Product}>;
 };
-export const CardList = ({ title, products, Extras,  CartActions}: CardListProps) => {
+export const CardList = ({ title, products }: CardListProps) => {
 	if (!products.length) {
 		return <h1 className='header-title'>Товар не найден</h1>;
 	}
@@ -19,7 +19,12 @@ export const CardList = ({ title, products, Extras,  CartActions}: CardListProps
 			</div>
 			<div className={s['card-list__items']}>
 				{products.map((product) => (
-					<Card key={product.id} product={product} Extras={Extras} CartActions={CartActions}/>
+					<Card
+						key={product.id}
+						product={product}
+						Extras={LikeButton}
+						CartActions={AddToCart}
+					/>
 				))}
 			</div>
 		</div>
