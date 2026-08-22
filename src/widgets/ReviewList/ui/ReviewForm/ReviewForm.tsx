@@ -17,7 +17,7 @@ export const ReviewForm = () => {
 	};
 
 	return (
-		<form className={s['form']}>
+		<form className={s['form']} onSubmit={(e) => e.preventDefault()}>
 			<Rating isEdit rating={rating} onChange={setRating} />
 			<textarea
 				className={classNames(s['input'], s['textarea'])}

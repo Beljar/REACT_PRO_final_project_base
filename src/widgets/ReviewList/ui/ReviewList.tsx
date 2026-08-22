@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import s from './ReviewList.module.css';
 import { Rating } from '../../../shared/ui/Rating';
-import { ReviewForm } from './ReviewForm/ReviewForm';
+import { PostReview } from './ReviewForm';
 
 type ReviewListProps = {
 	product: Product;
@@ -23,7 +23,7 @@ export const ReviewList = ({ product }: ReviewListProps) => {
 			))}
 
 			<h2>Отзыв о товаре {product.name}</h2>
-			<ReviewForm />
+			<PostReview />
 		</div>
 	);
 };
