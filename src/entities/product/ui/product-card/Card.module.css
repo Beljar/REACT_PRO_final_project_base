@@ -99,6 +99,9 @@
 }
 
 .card__link {
+	flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 	color: currentcolor;
 	text-decoration: none;
 }
