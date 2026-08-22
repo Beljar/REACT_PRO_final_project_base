@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 interface IUseHandlersProps {
 	isOpen: boolean;
-	closeBtnRef: React.RefObject<HTMLButtonElement>;
+	closeBtnRef: React.RefObject<HTMLButtonElement | null>;
 	portalRoot: HTMLElement | null;
 	onClose: () => void;
 }
