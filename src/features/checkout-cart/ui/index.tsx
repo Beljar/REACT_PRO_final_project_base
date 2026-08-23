@@ -1,11 +1,12 @@
-import s from '../../CartPage.module.css';
+import s from './CheckoutCart.module.css';
 import classNames from 'classnames';
-import { Button } from '../../../../../shared/ui';
+import { Button } from '../../../shared/ui';
+import { useAppSelector } from 'shared/store';
+import { cartSelectors } from 'entities/cart';
 
-type CartAmountProps = {
-	products: CartProduct[];
-};
-export const CartAmount = ({ products }: CartAmountProps) => {
+export const CheckoutCart = () => {
+	const products = useAppSelector(cartSelectors.getCartProducts);
+
 	const allPrice = products.reduce((acc, p) => p.price * p.count + acc, 0);
 	const allDiscount = products.reduce(
 		(acc, p) => p.discount * p.count + acc,

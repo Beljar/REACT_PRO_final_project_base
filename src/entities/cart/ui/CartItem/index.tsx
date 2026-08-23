@@ -1,9 +1,9 @@
-import { ReactComponent as TrashIcon } from '../../../../../shared/assets/icons/trash.svg';
+import { ReactComponent as TrashIcon } from 'shared/assets/icons/trash.svg';
 import { Link } from 'react-router-dom';
-import s from '../../CartPage.module.css';
+import s from './CartItem.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { Button } from '../../../../../shared/ui';
+import { Button } from 'shared/ui';
 import { AddToCart } from 'features/add-to-cart';
 import { cartActions } from 'entities/cart';
 import { memo } from 'react';
