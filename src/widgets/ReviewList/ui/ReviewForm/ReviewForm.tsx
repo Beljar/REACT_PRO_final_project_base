@@ -1,12 +1,16 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useRef } from 'react';
 import classNames from 'classnames';
 import s from './ReviewForm.module.css';
 import { Rating } from '../../../../shared/ui/Rating';
 import { Button } from '../../../../shared/ui';
+import { useClickCounter } from 'shared/hooks/useClickCounter';
 
 export const ReviewForm = () => {
+	const formRef = useRef<HTMLFormElement>(null);
 	const [reviewText, setReviewText] = useState('');
 	const [rating, setRating] = useState(0);
+
+	useClickCounter(formRef);
 
 	const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		setReviewText(e.target.value);
@@ -17,7 +21,10 @@ export const ReviewForm = () => {
 	};
 
 	return (
-		<form className={s['form']} onSubmit={(e) => e.preventDefault()}>
+		<form
+			className={s['form']}
+			onSubmit={(e) => e.preventDefault()}
+			ref={formRef}>
 			<Rating isEdit rating={rating} onChange={setRating} />
 			<textarea
 				className={classNames(s['input'], s['textarea'])}
