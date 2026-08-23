@@ -18,13 +18,14 @@ interface ModalProps {
 
 export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
 	const closeBtnRef = useRef<HTMLButtonElement>(null);
+	const modalRef = useRef<HTMLDivElement>(null);
 
 	const portalRoot = document.getElementById('modal-root');
 
 	useHandlers({
 		isOpen,
 		closeBtnRef,
-		portalRoot,
+		modalRef,
 		onClose,
 	});
 
@@ -38,6 +39,7 @@ export const Modal = ({ isOpen, title, children, onClose }: ModalProps) => {
 	return createPortal(
 		<div className={styles.modalOverlay} onClick={onClose} role='presentation'>
 			<div
+				ref={modalRef}
 				className={styles.modal}
 				onClick={(e) => e.stopPropagation()}
 				role='dialog'

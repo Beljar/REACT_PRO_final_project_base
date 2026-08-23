@@ -16,7 +16,10 @@ export const PostReview = () => {
 				onClick={() => setIsOpen(true)}>
 				Оставить отзыв
 			</Button>
-			<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+			<Modal
+				isOpen={isOpen}
+				onClose={() => setIsOpen(false)}
+				title='Оставить отзыв'>
 				<ReviewForm />
 			</Modal>
 		</>
