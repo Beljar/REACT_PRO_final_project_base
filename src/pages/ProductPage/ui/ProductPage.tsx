@@ -1,24 +1,20 @@
 import s from './ProductPage.module.css';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-import truckSVG from '../../../shared/assets/icons/truck.svg';
-import qualitySVG from '../../../shared/assets/icons/quality.svg';
-import { Rating } from '../../../shared/ui/Rating';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { ReviewList } from '../../../widgets/ReviewList/ui/ReviewList';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { useGetProductQuery } from '../../../entities/product/api';
-import { useAppSelector } from '../../../shared/store/utils';
+import truckSVG from 'shared/assets/icons/truck.svg';
+import qualitySVG from 'shared/assets/icons/quality.svg';
+import { Rating } from 'shared/ui/Rating';
+import { ButtonBack } from 'shared/ui/ButtonBack';
+import { ReviewList } from 'widgets/ReviewList/ui/ReviewList';
+import { useGetProductQuery } from 'entities/product/api';
 import { LikeButton } from 'features/like-product';
 import { AddToCart } from 'features/add-to-cart';
-import { cartSelectors } from 'entities/cart';
+import { WithProtection } from 'entities/product';
 
 export const ProductPage = WithProtection(() => {
 	const location = useLocation();
 	const { pathname } = location;
 	const productId = pathname.split('/').at(-1) || '';
-
-	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 
 	const { data: product } = useGetProductQuery({ id: productId });
 
@@ -27,8 +23,6 @@ export const ProductPage = WithProtection(() => {
 	}
 
 	const { id, name, images, description, price, discount } = product;
-
-	const isProductInCart = !!cartProducts.find((p) => p.id === id);
 
 	return (
 		<>

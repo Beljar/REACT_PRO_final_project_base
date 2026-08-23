@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import AppApi from 'shared/api/ApiServise';
+import AppApi from '../api/ApiServise';
 import { rootReducer } from './reducers/rootReducer';
 import { productsApi } from 'entities/product/api';
 import { authApi } from 'entities/auth';
@@ -14,3 +14,5 @@ export const store = configureStore({
 			},
 		}).concat([authApi.middleware, productsApi.middleware]),
 });
+
+export { useAppSelector, useAppDispatch } from './utils'

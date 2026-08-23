@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { productsSlice } from '../../../entities/product/model';
-import { productsApi } from '../../../entities/product/api';
+import { productsSlice } from 'entities/product/model';
+import { productsApi } from 'entities/product/api';
 import { cartSlice } from 'entities/cart';
 import { userSlice } from 'entities/user';
 import { authApi } from 'entities/auth';

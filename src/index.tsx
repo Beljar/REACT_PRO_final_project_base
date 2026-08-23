@@ -3,7 +3,7 @@ import { StrictMode } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './app/providers/router';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { store } from './shared/store';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);

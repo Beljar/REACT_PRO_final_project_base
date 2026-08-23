@@ -6,4 +6,6 @@ export {
 	useDeleteLikeProductMutation,
 } from './api';
 export { Card } from './ui';
-export {useProducts} from './hooks/useProducts';
+export { useProducts } from './hooks/useProducts';
+
+export { WithProtection, WithQuery } from '../product/HOCs';

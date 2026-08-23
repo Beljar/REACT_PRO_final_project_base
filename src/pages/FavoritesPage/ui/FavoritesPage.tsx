@@ -1,4 +1,4 @@
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
+import { WithProtection } from 'entities/product';
 import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { ProductList } from 'widgets/ProductList';
 

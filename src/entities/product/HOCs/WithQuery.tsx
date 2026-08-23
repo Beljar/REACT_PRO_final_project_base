@@ -6,10 +6,10 @@ import {
 	Container,
 } from '@mui/material';
 import { FC, ComponentType } from 'react';
-import { getMessageFromError } from '../../utils';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import { Button, Loader, Spinner } from '../../ui';
+import { Button, Spinner } from 'shared/ui';
+import { getMessageFromError } from 'shared/utils';
 
 interface WithQueryProps {
 	isLoading: boolean;

@@ -1,6 +1,6 @@
+import { useAppDispatch } from "shared/store/utils";
 import { cartActions } from "entities/cart";
 import { useCallback } from "react";
-import { useAppDispatch } from "shared/store/utils";
 
 export const useAddToCart = () => {
 	const dispatch = useAppDispatch();

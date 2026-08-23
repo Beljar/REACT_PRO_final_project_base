@@ -1,6 +1,6 @@
+import { useAppSelector } from 'shared/store/utils';
 import { useProducts } from 'entities/product';
 import { userSelectors } from 'entities/user';
-import { useAppSelector } from 'shared/store/utils';
 import { isLiked } from 'shared/utils';
 
 export const CountLikes = () => {

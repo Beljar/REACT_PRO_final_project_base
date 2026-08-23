@@ -1,7 +1,7 @@
+import { useAppSelector } from 'shared/store/utils';
 import { cartActions, cartSelectors } from 'entities/cart';
 import { ChangeEvent } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from 'shared/store/utils';
 
 const MIN_COUNT = 1;
 const MAX_COUNT = 99;
@@ -28,8 +28,8 @@ export const useCount = (productId: string) => {
 			newCount > MAX_COUNT
 				? MAX_COUNT
 				: newCount < MIN_COUNT
-				? MIN_COUNT
-				: newCount;
+					? MIN_COUNT
+					: newCount;
 		dispatch(cartActions.setCartProductCount({ id, count: validCount }));
 	};
 	return { count, stock, handleSetCount, handleIncrement, handleDecrement };

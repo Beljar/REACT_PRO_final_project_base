@@ -1,15 +1,12 @@
 import classNames from 'classnames';
 import s from './Header.module.css';
-import { Logo } from '../../../shared/ui/Logo';
+import { Logo } from 'shared/ui/Logo';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../../shared/store/utils';
-import { isLiked } from '../../../shared/utils';
-import { useProducts } from 'entities/product';
 import { Search } from 'features/search-product';
-import { cartSelectors } from 'entities/cart';
 import { userSelectors } from 'entities/user';
 import { CountLikes } from 'features/count-likes';
 import { CountCartProducts } from 'features/count-cart-products';
+import { useAppSelector } from 'shared/store';
 
 export const Header = () => {
 	const accessToken = useAppSelector(userSelectors.getAccessToken);

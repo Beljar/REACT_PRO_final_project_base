@@ -1,1 +1,1 @@
-export {userActions, userSelectors, userSlice} from './model';
+export { userActions, userSelectors, userSlice } from './model';

@@ -9,7 +9,6 @@ import {
 } from 'entities/product';
 import { toast } from 'react-toastify';
 import { userSelectors } from 'entities/user';
-import { useAppDispatch, useAppSelector } from 'shared/store/utils';
 import {
 	IErrorResponse,
 	productsApi,
@@ -17,6 +16,7 @@ import {
 } from 'entities/product/api';
 import { Button } from 'shared/ui';
 import { memo, useEffect, useOptimistic, useState, useTransition } from 'react';
+import { useAppDispatch, useAppSelector } from 'shared/store/utils';
 
 type TLikeButtonProps = {
 	product: Product;
