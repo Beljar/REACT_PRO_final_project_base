@@ -1,5 +1,3 @@
-# homework-react-21951242
-
 ## Запуск проекта локально:
 
 - `npm i` - установка зависимостей
@@ -69,3 +67,10 @@ Features: бизнес-логика над конкретными сущност
 Entities: бизнес сущности, их специфический UI, работа с api и store
 Shared: общий функционал, не относящийся к бизнес логике (презентационное UI, конфиги, общие утилиты)
 
+### Модальное окно
+
+![folder-structure](screenshots\modal\modal.png)
+
+### Optimistic UI
+
+![folder-structure](screenshots\optimistic\optimistic.png)
