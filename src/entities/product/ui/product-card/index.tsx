@@ -9,6 +9,7 @@ type CardProps = {
 	Extras?: React.FC<{ product: Product }>;
 	CartActions?: React.FC<{ product: Product }>;
 };
+// eslint-disable-next-line react/display-name
 export const Card = memo(({ product, Extras, CartActions }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDebounce } from 'shared/hooks/useDebounce';
 
-
 const QUERY_SEARCH_PHRASE = 'q';
 
 export interface UseProductsSearchFormParams {

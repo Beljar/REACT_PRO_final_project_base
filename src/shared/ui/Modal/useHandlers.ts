@@ -26,28 +26,27 @@ export const useHandlers = ({
 			closeBtnRef.current.focus();
 		}
 		const modalElement = modalRef.current;
-		if (!modalElement) return
-		const focusableElements = Array.from(modalElement.querySelectorAll(
-			'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-		)) as HTMLElement[];
+		if (!modalElement) return;
+		const focusableElements = Array.from(
+			modalElement.querySelectorAll(
+				'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+			)
+		) as HTMLElement[];
 		const firstElement = focusableElements[0];
 		const lastElement = focusableElements[focusableElements.length - 1];
 
 		const handleTabKeyPress = (event: KeyboardEvent) => {
-			if (event.key === "Tab") {
+			if (event.key === 'Tab') {
 				if (event.shiftKey && document.activeElement === firstElement) {
 					event.preventDefault();
 					lastElement.focus();
-				} else if (
-					!event.shiftKey &&
-					document.activeElement === lastElement
-				) {
+				} else if (!event.shiftKey && document.activeElement === lastElement) {
 					event.preventDefault();
 					firstElement.focus();
 				}
 			}
 		};
-		modalElement.addEventListener("keydown", handleTabKeyPress);
+		modalElement.addEventListener('keydown', handleTabKeyPress);
 		document.addEventListener('keydown', handleEscape);
 		return () => {
 			if (triggerElement instanceof HTMLElement) {

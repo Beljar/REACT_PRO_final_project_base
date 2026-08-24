@@ -7,6 +7,7 @@ interface IAddToCartButton {
 	onAddProduct: () => void;
 }
 
+// eslint-disable-next-line react/display-name
 export const AddToCartButton = memo(({ onAddProduct }: IAddToCartButton) => {
 	return (
 		<Button

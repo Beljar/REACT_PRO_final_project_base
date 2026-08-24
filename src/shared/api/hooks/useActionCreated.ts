@@ -20,8 +20,8 @@ export const useActionCreators = <Actions extends ActionCreatorsMapObject>(
 type BoundActions<Actions extends ActionCreatorsMapObject> = {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	[key in keyof Actions]: Actions[key] extends AsyncThunk<any, any, any>
-	? BoundAsyncThunk<Actions[key]>
-	: Actions[key];
+		? BoundAsyncThunk<Actions[key]>
+		: Actions[key];
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

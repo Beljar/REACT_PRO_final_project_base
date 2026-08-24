@@ -1,2 +1,2 @@
-export { WithProtection } from './WithProtection'
-export { WithQuery } from './WithQuery'
+export { WithProtection } from './WithProtection';
+export { WithQuery } from './WithQuery';

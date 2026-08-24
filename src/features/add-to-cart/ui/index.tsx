@@ -1,7 +1,6 @@
 import { cartSelectors } from 'entities/cart';
 import { useAppSelector } from 'shared/store/utils';
 import { CartCounter } from './CartCounter';
-import { Button } from 'shared/ui';
 import { useAddToCart } from '../hooks/useAddToCart';
 
 import { useCallback } from 'react';

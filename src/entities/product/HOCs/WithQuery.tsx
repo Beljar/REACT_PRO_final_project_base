@@ -1,10 +1,4 @@
-import {
-	Alert,
-	AlertTitle,
-	Box,
-	Button as MUIButton,
-	Container,
-} from '@mui/material';
+import { Alert, AlertTitle, Box, Container } from '@mui/material';
 import { FC, ComponentType } from 'react';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';

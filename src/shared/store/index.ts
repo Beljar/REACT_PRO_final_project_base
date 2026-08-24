@@ -15,4 +15,4 @@ export const store = configureStore({
 		}).concat([authApi.middleware, productsApi.middleware]),
 });
 
-export { useAppSelector, useAppDispatch } from './utils'
+export { useAppSelector, useAppDispatch } from './utils';

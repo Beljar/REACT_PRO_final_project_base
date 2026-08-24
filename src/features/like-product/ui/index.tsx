@@ -5,27 +5,24 @@ import classNames from 'classnames';
 import {
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
-	useProducts,
 } from 'entities/product';
 import { toast } from 'react-toastify';
 import { userSelectors } from 'entities/user';
-import {
-	IErrorResponse,
-	productsApi,
-	useGetProductQuery,
-} from 'entities/product/api';
+import { IErrorResponse } from 'entities/product/api';
 import { Button } from 'shared/ui';
 import { memo, useEffect, useOptimistic, useState, useTransition } from 'react';
-import { useAppDispatch, useAppSelector } from 'shared/store/utils';
+import { useAppSelector } from 'shared/store/utils';
 
 type TLikeButtonProps = {
 	product: Product;
 };
+// eslint-disable-next-line react/display-name
 export const LikeButton = memo(({ product }: TLikeButtonProps) => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [isPending, startTransition] = useTransition();
 	const accessToken = useAppSelector(userSelectors.getAccessToken);
 	const user = useAppSelector(userSelectors.getUser);
-	const dispatch = useAppDispatch();
+
 	const [setLike] = useSetLikeProductMutation();
 	const [deleteLike] = useDeleteLikeProductMutation();
 

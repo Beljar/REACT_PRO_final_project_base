@@ -1,5 +1,5 @@
-import { productsActions, productsSelectors } from "entities/product";
-import { useAppDispatch, useAppSelector } from "shared/store";
+import { productsActions, productsSelectors } from 'entities/product';
+import { useAppDispatch, useAppSelector } from 'shared/store';
 
 interface SortParams {
 	title: string;

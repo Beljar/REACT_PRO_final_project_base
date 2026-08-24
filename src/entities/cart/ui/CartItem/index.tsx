@@ -8,6 +8,7 @@ import { AddToCart } from 'features/add-to-cart';
 import { cartActions } from 'entities/cart';
 import { memo } from 'react';
 
+// eslint-disable-next-line react/display-name
 export const CartItem = memo((props: Product) => {
 	const dispatch = useDispatch();
 	const { id, name, images, price, discount } = props;

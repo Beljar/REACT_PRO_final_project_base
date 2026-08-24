@@ -22,7 +22,7 @@ export const ProductPage = WithProtection(() => {
 		return <></>;
 	}
 
-	const { id, name, images, description, price, discount } = product;
+	const { name, images, description, price, discount } = product;
 
 	return (
 		<>

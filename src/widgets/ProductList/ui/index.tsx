@@ -1,6 +1,5 @@
-import { useProducts } from 'entities/product';
+import { useProducts, WithQuery } from 'entities/product';
 import { CardList } from './card-list/CardList';
-import { WithQuery } from 'entities/product';
 
 interface IProductListProps {
 	title: string;

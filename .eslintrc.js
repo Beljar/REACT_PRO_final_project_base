@@ -1,4 +1,4 @@
-import importPlugin from 'eslint-plugin-import';
+
 
 module.exports = {
 	parser: '@typescript-eslint/parser',
@@ -12,9 +12,23 @@ module.exports = {
 			version: 'detect',
 		},
 	},
-	plugins: {
-		import: importPlugin,
-	},
+	plugins: ['import'],
+	    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+
+      'boundaries/elements': [
+        { type: 'shared', pattern: 'shared/*' },
+        { type: 'entities', pattern: 'entities/*' },
+        { type: 'features', pattern: 'features/*' },
+        { type: 'widgets', pattern: 'widgets/*' },
+        { type: 'pages', pattern: 'pages/*' },
+        { type: 'app', pattern: 'app/*' },
+      ],
+    },
 	extends: [
 		'plugin:@typescript-eslint/recommended',
 		'plugin:prettier/recommended',

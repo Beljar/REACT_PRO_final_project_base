@@ -1,7 +1,10 @@
-import { productsActions, productsSelectors, useProducts } from 'entities/product';
+import {
+	productsActions,
+	productsSelectors,
+	useProducts,
+} from 'entities/product';
 import { RefObject, useCallback, useLayoutEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'shared/store/utils';
-
 
 interface UseLoadMoreParams {
 	ref: RefObject<HTMLDivElement | null> | null;
