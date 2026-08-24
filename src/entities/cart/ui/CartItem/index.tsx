@@ -4,14 +4,18 @@ import s from './CartItem.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { Button } from 'shared/ui';
-import { AddToCart } from 'features/add-to-cart';
-import { cartActions } from 'entities/cart';
+import { cartActions } from '../../model';
 import { memo } from 'react';
 
+type CartItemProps = {
+	product: Product;
+	CartActions: React.FC<{ product: Product }>;
+};
+
 // eslint-disable-next-line react/display-name
-export const CartItem = memo((props: Product) => {
+export const CartItem = memo(({ product, CartActions }: CartItemProps) => {
 	const dispatch = useDispatch();
-	const { id, name, images, price, discount } = props;
+	const { id, name, images, price, discount } = product;
 
 	const handleDelete = () => {
 		dispatch(cartActions.deleteCartProduct(id));
@@ -34,7 +38,7 @@ export const CartItem = memo((props: Product) => {
 						</Link>
 
 						<div style={{ display: 'flex', flexDirection: 'column' }}>
-							<AddToCart product={props} />
+							<CartActions product={product} />
 
 							<div className={classNames(s['cart-item__price'])}>
 								<div className={classNames(s['price-big'], s['price-wrap'])}>
